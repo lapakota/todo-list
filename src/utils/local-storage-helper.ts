@@ -1,4 +1,4 @@
-export const saveToLocalStorage = (key: string, value: any) => {
+export const saveToLocalStorage = (key: string, value: unknown) => {
   const serializedValue = JSON.stringify(value);
 
   localStorage.setItem(key, serializedValue);

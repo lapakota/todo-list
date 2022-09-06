@@ -1,5 +1,13 @@
 .header {
   flex: 0 0 auto;
-  background: gray;
+  display: flex;
+  align-items: center;
+  background: #3f51b5;
   height: 5em;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  .label {
+    padding: 0 1em;
+    color: #fff;
+  }
 }

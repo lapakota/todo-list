@@ -1,5 +1,12 @@
 .footer {
   flex: 0 0 auto;
-  background: gray;
+  display: flex;
+  background: #3f51b5;
   height: 3em;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+
+  .info {
+    color: #fff;
+    padding: 0 1em;
+  }
 }

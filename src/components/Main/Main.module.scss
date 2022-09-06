@@ -1,4 +1,8 @@
 .main {
   flex: 1 0 auto;
-  background: green;
+  padding-top: 1em;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }

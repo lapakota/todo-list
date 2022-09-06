@@ -1,8 +1,9 @@
 .footer {
   flex: 0 0 auto;
   display: flex;
+  align-items: center;
   background: #3f51b5;
-  height: 3em;
+  height: 4em;
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
 
   .info {

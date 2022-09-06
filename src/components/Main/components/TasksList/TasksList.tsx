@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import styles from './TasksList.module.scss';
-import { Task } from '../../../../typescript/models/task';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -12,17 +11,17 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { tasksStore } from '../../../../stores/tasks-store/tasks.store';
 import { Typography } from '@mui/material';
 import cn from 'classnames';
+import { getSortedTasks } from '../../helpers';
+import { sortTypeStore } from '../../../../stores/sort-type-store/sort-type.store';
 
-interface Props {
-  tasks: Task[];
-}
+export const TasksList = observer(() => {
+  const tasks = getSortedTasks(sortTypeStore.currentType);
 
-export const TasksList = observer(({ tasks }: Props) => {
   return (
     <List className={styles.tasksList}>
       {tasks.length ? (
         tasks.map((task) => {
-          const labelId = `checkbox-list-label-${task.id}`;
+          const labelId = `tasks-list-label-${task.id}`;
           return (
             <ListItem
               className={styles.task}

@@ -9,11 +9,11 @@ import styles from './AddTaskInput.module.scss';
 export const AddTaskInput = observer(() => {
   const [taskText, setTaskText] = useState('');
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTaskText(event.target.value);
   };
 
-  const handleEnter = (event: KeyboardEvent<HTMLDivElement>) => {
+  const handleTaskCreating = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key !== 'Enter' || !taskText) return;
 
     tasksStore.addTask(taskText);
@@ -26,8 +26,8 @@ export const AddTaskInput = observer(() => {
         fullWidth
         label="Add new task"
         value={taskText}
-        onChange={handleChange}
-        onKeyDown={handleEnter}
+        onChange={handleTextChange}
+        onKeyDown={handleTaskCreating}
       />
     </Box>
   );

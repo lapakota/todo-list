@@ -1,13 +1,15 @@
-import { makeAutoObservable } from 'mobx';
+import { autorun, makeAutoObservable } from 'mobx';
 import { Task } from '../../typescript/models/task';
-import { createNewTask } from './helpers';
+import { createNewTask, getTestTasks } from './helpers';
+import { loadFromLocalStorage, saveToLocalStorage } from '../../utils/local-storage-helper';
+import { LocalStorageKeys } from '../../typescript/enums/local-storage-keys';
 
 class TasksStore {
   constructor() {
     makeAutoObservable(this);
   }
 
-  tasks: Task[] = [];
+  tasks: Task[] = loadFromLocalStorage(LocalStorageKeys.Tasks) || getTestTasks();
 
   get allTasks() {
     return this.tasks;
@@ -36,3 +38,7 @@ class TasksStore {
 }
 
 export const tasksStore = new TasksStore();
+
+autorun(() => {
+  saveToLocalStorage(LocalStorageKeys.Tasks, tasksStore.tasks);
+});

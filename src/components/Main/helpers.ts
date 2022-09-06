@@ -1,13 +1,13 @@
-import { RadioSortValues } from '../../typescript/enums/radio-sort-values';
+import { SortTypes } from '../../typescript/enums/sort-types';
 import { tasksStore } from '../../stores/tasks-store/tasks.store';
 
-export const getSortedTasks = (sortType: RadioSortValues) => {
+export const getSortedTasks = (sortType: SortTypes) => {
   switch (sortType) {
-    case RadioSortValues.All:
+    case SortTypes.All:
       return tasksStore.allTasks;
-    case RadioSortValues.Active:
+    case SortTypes.Active:
       return tasksStore.activeTasks;
-    case RadioSortValues.Completed:
+    case SortTypes.Completed:
       return tasksStore.completedTasks;
   }
 };

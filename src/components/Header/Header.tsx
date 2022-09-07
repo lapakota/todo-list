@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <Typography className={styles.label} variant="h4" component="h4">
-        {'todo list'}
+        {'Todo list'}
       </Typography>
     </header>
   );
